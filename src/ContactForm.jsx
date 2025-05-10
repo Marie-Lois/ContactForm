@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./contactForm.css"
+import "./contactForm.css";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -23,9 +23,8 @@ const ContactForm = () => {
 
   return (
     <div className="background">
-        <h3>Contact Us</h3>
+      <h3>Contact Us</h3>
       <form onSubmit={handleSubmit}>
-
         <div className="form-row">
           <div className="form-group">
             <label>
@@ -52,7 +51,7 @@ const ContactForm = () => {
             </label>
           </div>
         </div>
-        <div>
+        <div className="email">
           <label>
             Email Address:
             <input
@@ -70,29 +69,27 @@ const ContactForm = () => {
             {" "}
             {/* Fixed the typo from 'di' to 'div' */}
             <div className="radio-option">
+              <input
+                type="radio"
+                name="queryType" // Corrected the name to match the state variable
+                value="General Enquiry"
+                checked={formData.queryType === "General Enquiry"}
+                onChange={handleChange}
+              />
               <label>
-                <input
-                  type="radio"
-                  name="queryType" // Corrected the name to match the state variable
-                  value="General Enquiry"
-                  checked={formData.queryType === "General Enquiry"}
-                  onChange={handleChange}
-                />
                 General Enquiry{" "}
                 {/* Changed the label text to match the value */}
               </label>
             </div>
             <div className="radio-option">
-              <label>
-                <input
-                  type="radio"
-                  name="queryType" // Corrected the name to match the state variable
-                  value="Support Request"
-                  checked={formData.queryType === "Support Request"}
-                  onChange={handleChange}
-                />
-                Support Request
-              </label>
+              <input
+                type="radio"
+                name="queryType" // Corrected the name to match the state variable
+                value="Support Request"
+                checked={formData.queryType === "Support Request"}
+                onChange={handleChange}
+              />
+              <label>Support Request</label>
             </div>
           </div>
         </div>
